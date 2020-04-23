@@ -4,15 +4,15 @@ import { MainComponent } from './main.component';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'main',
     component: MainComponent,
     children: [
       {
-        path: 'tab1',
+        path: 'home',
         children: [
           {
             path: '',
-            loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+            loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
           }
         ]
       },
@@ -21,29 +21,20 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-          }
-        ]
-      },
-      {
-        path: 'tab3',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+            loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/main/home',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/main/home',
     pathMatch: 'full'
   }
 ];
