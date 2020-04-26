@@ -9,14 +9,19 @@ import { DeliveryHelper } from './delivery-helper';
 export class DeliveriesListComponent implements OnInit {
 
   items: any[] = [
+    {id: 1, name: "Angus Delivery", services: ['Refeições', 'Pizzas', 'Petiscos'], rating: 4.5},
     {name: "Refúgio dos Piratas", services: ['Refeições', 'Pizzas', 'Petiscos'], rating: 4.9},
     {name: "La Doce Vita", services: ['Refeições'], rating: 4.7},
     {name: "Delícias do Rancho", services: ['Lanches'], rating: 4.5},
     {name: "O Queijão", services: ['Refeições', 'Lanches'], rating: 4.8},
   ];
 
-  constructor(public helper: DeliveryHelper) {  }
+  constructor() {  }
 
   ngOnInit() { }
+
+  toServicesFormat(item: any) {
+    return DeliveryHelper.toServicesFormat(item.services);
+  }
 
 }
