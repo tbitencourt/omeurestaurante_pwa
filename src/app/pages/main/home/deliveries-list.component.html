@@ -10,11 +10,11 @@
 	<ion-list>
 		<ion-item-sliding *ngFor="let item of items; let i = index">
 			<ion-item detail='true'>
-           <ion-icon name="person" slot='start'></ion-icon>
+				<ion-icon name="person" slot='start'></ion-icon>
 				<ion-label class="ion-text-wrap">
 					<ion-text>{{item.name}}</ion-text>
-          <p>{{toServicesFormat(item)}}</p>
-          <p>{{item.rating}}</p>
+					<p>{{helper.toServicesFormat(item)}}</p>
+					<p>{{item.rating}}</p>
 				</ion-label>
 			</ion-item>
 			<!-- <ion-item-options side="end">

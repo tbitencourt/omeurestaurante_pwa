@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { DeliveryHelper } from './delivery-helper';
 
 @Component({
-  selector: 'home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'deliveries-list',
+  templateUrl: './deliveries-list.component.html',
+  styleUrls: ['./deliveries-list.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class DeliveriesListComponent implements OnInit {
 
   items: any[] = [
     {name: "Refúgio dos Piratas", services: ['Refeições', 'Pizzas', 'Petiscos'], rating: 4.9},
@@ -14,15 +15,8 @@ export class HomeComponent implements OnInit {
     {name: "O Queijão", services: ['Refeições', 'Lanches'], rating: 4.8},
   ];
 
-  constructor() {}
+  constructor(public helper: DeliveryHelper) {  }
 
-  ngOnInit() {
-    
-  }
-
-  toServicesFormat(item: any) {
-    return Array(item.services).join(" | ");
-  }
-
+  ngOnInit() { }
 
 }
