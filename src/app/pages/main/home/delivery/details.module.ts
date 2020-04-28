@@ -1,17 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { MainRoutingModule } from './main-routing.module';
-import { MainComponent } from './main.component';
+import { DetailsComponent } from './details.component';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    MainRoutingModule
+    RouterModule.forChild([
+      { path: '', component: DetailsComponent }
+    ])
   ],
-  declarations: [MainComponent]
+  declarations: [DetailsComponent]
 })
-export class MainModule {}
+export class DetailsModule {}

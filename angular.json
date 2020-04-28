@@ -18,9 +18,18 @@
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": [
-              "src/assets",
               "src/favicon.ico",
-              "src/manifest.json"
+              "src/manifest.json",
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
             ],
             "styles": [
               "node_modules/font-awesome/scss/font-awesome.scss",
@@ -141,11 +150,11 @@
   "defaultProject": "omeu-restaurante",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "pwa-template",
+      "prefix": "omeu-restaurante",
       "style": "scss"
     },
     "@schematics/angular:directive": {
-      "prefix": "pwa-template"
+      "prefix": "omeu-restaurante"
     }
   },
   "cli": {

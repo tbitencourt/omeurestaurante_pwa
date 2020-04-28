@@ -4,37 +4,33 @@ import { MainComponent } from './main.component';
 
 const routes: Routes = [
   {
-    path: 'main',
+    path: '',
     component: MainComponent,
     children: [
       {
-        path: 'home',
+        path: 'deliveries',
         children: [
           {
             path: '',
-            loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
-          }
-        ]
-      },
-      {
-        path: 'tab2',
-        children: [
+            loadChildren: () => import('./home/delivery/list.module').then(m => m.ListModule)
+          },
           {
-            path: '',
-            loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+            path: 'details/:id',
+            outlet: 'details',
+            loadChildren: () => import('./home/delivery/details.module').then(m => m.DetailsModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/main/home',
+        redirectTo: '/deliveries',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/main/home',
+    redirectTo: '/deliveries',
     pathMatch: 'full'
   }
 ];
