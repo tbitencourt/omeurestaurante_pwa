@@ -4,14 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { DetailsComponent } from './details.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
+    MatCardModule,
     RouterModule.forChild([
-      { path: '', component: DetailsComponent }
+      { path: ':id', component: DetailsComponent }
     ])
   ],
   declarations: [DetailsComponent]

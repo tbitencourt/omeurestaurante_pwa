@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main.component';
+import { ListModule } from './home/delivery/list.module';
+import { DetailsModule } from './home/delivery/details.module';
 
 const routes: Routes = [
   {
@@ -12,12 +14,11 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('./home/delivery/list.module').then(m => m.ListModule)
+            loadChildren: () => ListModule
           },
           {
             path: 'details/:id',
-            outlet: 'details',
-            loadChildren: () => import('./home/delivery/details.module').then(m => m.DetailsModule)
+            loadChildren: () => DetailsModule
           }
         ]
       },
@@ -36,9 +37,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes)
-  ],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class MainRoutingModule {}

@@ -3,9 +3,33 @@
         <ion-buttons slot="start">
             <ion-back-button defaultHref="deliveries"></ion-back-button>
         </ion-buttons>
-        <ion-title>A</ion-title>
+        <ion-title>
+            {{delivery.name}}
+            <div class="subtitle">{{toServicesFormat()}}</div>
+        </ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <p>Back-Button is displayed when there is history</p>
+    <img src="/assets/images/temp/company.png" alt="Photo of Cthulu" id="logo" />
+    <p innerHtml="{{delivery.description}}"></p>
+    
+    <div *ngFor="let group of groups">
+        <hr>
+        <label class="delivery-group-title">
+            {{group.title}}
+        </label>
+        <hr>
+        
+        
+        <div class="delivery-group-list">
+            <mat-card *ngFor="let prod of group.products">
+                <mat-card-title-group>
+                    <mat-card-title>{{prod.name}}</mat-card-title>
+                    <mat-card-subtitle>{{prod.description}}</mat-card-subtitle>
+                    <img mat-card-sm-image *ngIf="prod.image != null" src="assets/images/temp/{{prod.image}}">
+                </mat-card-title-group>
+            </mat-card>
+        </div>
+    </div>
+
 </ion-content>

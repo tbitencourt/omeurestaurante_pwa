@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DeliveryService } from 'app/services/delivery-service';
+import { Delivery } from 'app/entities/delivery';
+import { DeliveryHelper } from './delivery-helper';
+import { DeliveryDetails } from 'app/entities/delivery-details';
+import { Product } from 'app/entities/product';
+import { ProductGroup } from 'app/entities/product-group';
 
 @Component({
     selector: 'delivery-details',
@@ -8,26 +14,31 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DetailsComponent implements OnInit {
 
-    delivery: Delivery = new Delivery();
+    details: DeliveryDetails;
 
-    constructor(private actRoute: ActivatedRoute, private route: Router) {
+    constructor(private actRoute: ActivatedRoute,
+        private route: Router,
+        private deliveryService: DeliveryService) {
+
         const id = this.actRoute.snapshot.paramMap.get('id');
-        /* this.delivery = {
-            id: Number.parseInt(id),
-            name: 'Angus Delivery',
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            services: ['Refeições', 'Pizzas', 'Petiscos']
-        }; */
-     }
+        this.deliveryService.getDelivery(Number.parseInt(id)).subscribe(r => this.details = r);
+    }
 
     ngOnInit() {
-        
-    }
-}
 
-class Delivery {
-    id: number;
-    name: string;
-    description: string;
-    services: string[];
+    }
+
+    get delivery(): Delivery {
+        return this.details.delivery;
+    }
+
+    get groups(): ProductGroup[] {
+        return this.details.productGroups;
+    }
+
+    toServicesFormat() {
+        if (!this.details.delivery)
+            return null;
+        return DeliveryHelper.showServicesList(this.details.delivery);
+    }
 }

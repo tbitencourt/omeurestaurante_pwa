@@ -8,8 +8,8 @@
 
 <ion-content>
 	<ion-list>
-        <ion-item-sliding *ngFor="let item of items; let i = index">
-            <ion-item detail='true' routerLink="details/{{item.id}}">
+        <ion-item-sliding *ngFor="let item of listDeliveries; let i = index">
+            <ion-item detail='true' [routerLink]="'details/' + item.id">
                 <ion-icon name="person" slot='start'></ion-icon>
                 <ion-label class="ion-text-wrap">
                     <ion-text>{{item.name}}</ion-text>

@@ -1,1 +1,46 @@
 tabbed-navigator.can-go-back ion-back-button { display: block; }
+
+ion-content {
+    p {
+        padding: 0rem 2rem 0rem 2rem;
+        font-size: small;
+    };
+    hr {
+        margin: 1em 0em 1em 0em;
+    }
+}
+
+#logo {
+    width: 30%;
+    float: right;
+    margin: -20px 0 0 0;
+}
+
+.delivery-group-title {
+    font-weight: bolder;
+    font-size: medium;
+    padding-left: 2em;
+}
+
+.delivery-group-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: lightgray;
+    mat-card {
+        min-height: 112px;
+        width: 95%;
+        height: 95%;
+        background-color: white;
+        margin: 2%;
+    };
+    .mat-card-sm-image {
+        object-fit: cover;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .delivery-group-list {
+        flex-direction: column;
+    }
+}  

@@ -33,7 +33,13 @@
             ],
             "styles": [
               "node_modules/font-awesome/scss/font-awesome.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/theme/variables.scss"
+              },
+              {
+                "input": "src/global.scss"
+              }
             ],
             "scripts": []
           },

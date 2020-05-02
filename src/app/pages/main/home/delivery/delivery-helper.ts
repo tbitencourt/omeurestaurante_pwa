@@ -1,7 +1,11 @@
+import { Delivery } from 'app/entities/delivery';
+
 export class DeliveryHelper {
 
-    static toServicesFormat(item: any) {
-        return Array(item.services).join(" | ");
+    static showServicesList(d: Delivery) {
+        if(!d)
+            return null;
+        return d.services.join(" | ");
     }
 
 }
