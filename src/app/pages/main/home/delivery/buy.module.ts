@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { DetailsComponent } from './details.component';
+import { BuyComponent } from './buy.component';
 
 @NgModule({
   imports: [
@@ -13,9 +13,9 @@ import { DetailsComponent } from './details.component';
     FormsModule,
     MatCardModule,
     RouterModule.forChild([
-      { path: ':id', component: DetailsComponent }
+      { path: ':id', component: BuyComponent }
     ])
   ],
-  declarations: [DetailsComponent]
+  declarations: [BuyComponent]
 })
-export class DetailsModule {}
+export class BuyModule {}

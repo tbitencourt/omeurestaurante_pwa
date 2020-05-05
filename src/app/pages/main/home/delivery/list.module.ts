@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ListComponent } from './list.component';
+import { DetailsModule } from './details.module';
+import { BuyModule } from './buy.module';
 
 const routes: Routes = [
     {
@@ -15,7 +17,11 @@ const routes: Routes = [
             },
             {
                 path: 'details',
-                loadChildren: () => import('./details.module').then(m => m.DetailsModule)
+                loadChildren: () => DetailsModule
+            },
+            {
+                path: 'buy',
+                loadChildren: () => BuyModule
             }
         ]
     }

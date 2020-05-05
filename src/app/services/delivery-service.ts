@@ -3,9 +3,28 @@ import { DeliveryDetails } from 'app/entities/delivery-details';
 import { ProductGroup } from 'app/entities/product-group';
 import { Observable, of } from 'rxjs';
 import { Delivery } from '../entities/delivery';
+import { Product } from 'app/entities/product';
+import { ProductDetails } from 'app/entities/product-details';
+import { FakeDB } from './fakedb';
 
 @Injectable()
 export class DeliveryService {
+    
+    listAvaiableDeliveries(): Observable<Delivery[]> {
+        return of(this.deliveries);
+    }
+
+    getDelivery(id: number): Observable<DeliveryDetails> {
+        return of(this.details.find(d => d.delivery.id == id));
+    }
+
+    getProduct(id: number): Observable<ProductDetails> {
+        let delivery = this.details.find(dd => dd.productGroups.find(g => g.products.find(p => p.id== id))).delivery;
+        let product = this.allProducts.find(g => g.products.find(p => p.id == id)).products.find(p => p.id == id);
+        return of({ delivery: delivery, product: product } as ProductDetails);
+    }
+
+    /* DADOS FAKE */
 
     private description: string = 
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry.<p>" + 
@@ -22,26 +41,15 @@ export class DeliveryService {
 
     private lunchs: ProductGroup =
         {   title: "Almoços", 
-            products: [
-                { id: 1, name: "Strogonoff de carne", description: "Acompanha arroz branco e batata palha.", price: 12, image: 'strogonoff.png'},
-                { id: 2, name: "Salada", description: "Salada verde, legumes e o grelhado do dia (opcional).", price: 12, image: 'salada.png'},
-                { id: 3, name: "Feijoada", description: "Feijoada completa (acompanha dose de cachaça artesanal).", price: 15},
-                { id: 4, name: "Yakisoba de Ópio", description: "Yakisoba feito na hora (com muito humor! rs).", price: 15}
-        ] };
+            products:  FakeDB.products.lunchs};
 
     private snacks: ProductGroup = 
-        { title: "Lanches", products: [
-            { id: 1, name: "Porção de pão de queijo (12 unids)", description: "", price: 6, image: 'pao-de-queijo.jpg'},
-            { id: 2, name: "Açai", description: "Diversos tamanhos e acompanhamentos.", price: 8},
-            { id: 3, name: "Salgado + suco do dia", description: "Salgados diversos.", price: 6}
-        ] };
+        { title: "Lanches", products: FakeDB.products.snacks };
 
     private pizzas: ProductGroup = 
-        { title: "Pizzas", products: [
-            { id: 1, name: "Mussarela", description: "Mussarela + oregano + molho caseiro", price: 18},
-            { id: 2, name: "Calabresa especial", description: "Calabresa + mussarela + cebola, alho e especiarias.", price: 20},
-            { id: 3, name: "Camarão", description: "Deliciosos camarões salteados cobertos com mussarela e cebola roxa.", price: 38}
-        ] };
+        { title: "Pizzas", products: FakeDB.products.pizzas };
+
+    private allProducts: ProductGroup[] = Array().concat(this.lunchs, this.pizzas, this.snacks);
 
     private details: DeliveryDetails[] = [
         {delivery: this.deliveries[0], productGroups: Array().concat(this.lunchs, this.pizzas)},
@@ -50,12 +58,4 @@ export class DeliveryService {
         {delivery: this.deliveries[3], productGroups: Array().concat(this.snacks)},
         {delivery: this.deliveries[4], productGroups: Array().concat(this.lunchs, this.snacks)}
     ];
-
-    listAvaiableDeliveries(): Observable<Delivery[]> {
-        return of(this.deliveries);
-    }
-
-    getDelivery(id: number): Observable<DeliveryDetails> {
-        return of(this.details.find(d => d.delivery.id == id));
-    }
 }

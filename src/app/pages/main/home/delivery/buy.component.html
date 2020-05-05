@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/deliveries/details/{{delivery.id}}"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            Detalhes do Pedido
+            <div class="subtitle">{{delivery.name}}</div>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="title">
+        {{product.name}}
+        <div class="subtitle">
+            {{product.description}}
+        </div>
+        R$ {{product.price}}
+    </div>
+    <ion-list *ngIf="product.selectOptions">
+        <ion-radio-group>
+            <ion-list-header class="required">
+                <ion-label>
+                    Selecione as opções abaixo:
+                </ion-label>
+            </ion-list-header>
+            <ion-item *ngFor="let option of product.selectOptions">
+                <ion-radio slot="start" value="{{option}}"></ion-radio>
+                <ion-label>{{option}}</ion-label>
+            </ion-item>
+        </ion-radio-group>
+    </ion-list>
+    <ion-list *ngIf="product.yesOrNoOptions">
+        <ion-radio-group>
+            <ion-list-header class="optional">
+                <ion-label>
+                    Caso queira, também poderá adicionar:
+                </ion-label>
+            </ion-list-header>
+            <ion-item *ngFor="let option of product.yesOrNoOptions">
+                <ion-checkbox color="danger" slot="start" [checked]="option.selected"></ion-checkbox>
+                <ion-label>{{option.name}}</ion-label>
+            </ion-item>
+        </ion-radio-group>
+    </ion-list>
+
+</ion-content>

@@ -1,0 +1,23 @@
+ion-content {
+    background-color: lightgray;
+}
+
+ion-list-header.optional {
+    background-color: rgba(245, 245, 240, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+ion-list-header.required {
+    background-color: rgba(192, 26, 26, 0.5);
+    color: white;
+}
+
+.title {
+    padding: 1rem 0rem 1rem 2rem;
+    font-size: large;
+    font-weight: bolder;
+    .subtitle {
+        font-size: 70%;
+        color: gray;
+    }
+}
