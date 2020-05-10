@@ -7,6 +7,6 @@ export class Product {
     price: number;
     image?: string;
 
-    selectOptions: string[];
+    selectOptions: SelectOption[];
     yesOrNoOptions: YesOrNoOption[];
 }

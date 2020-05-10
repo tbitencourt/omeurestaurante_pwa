@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { MainComponent } from './main.component';
 import { ListModule } from './home/delivery/list.module';
 import { DetailsModule } from './home/delivery/details.module';
 import { BuyModule } from './home/delivery/buy.module';
+import { Platform } from '@ionic/angular';
 
 const routes: Routes = [
   {
@@ -45,4 +46,10 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MainRoutingModule {}
+export class MainRoutingModule {
+    constructor(private platform: Platform, private router: Router) {
+        this.platform.ready().then(() => {
+            console.log(router.url);
+        });
+    }
+}

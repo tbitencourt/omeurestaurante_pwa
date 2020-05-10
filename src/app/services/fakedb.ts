@@ -9,8 +9,29 @@ export class FakeDB {
     public static products = {
         lunchs:
         [
-            { id: FakeDB.random(), name: "Strogonoff", description: "Acompanha arroz branco e batata palha.", price: 12, image: 'strogonoff.png', selectOptions: ["Carne", "Frango"], yesOrNoOptions: [{name: "Feijão"}, {name: "Farofa"}, {name: "Cebola", selected: true}]},
-            { id: FakeDB.random(), name: "Salada", description: "Salada verde, legumes e o grelhado do dia (opcional).", price: 12, image: 'salada.png'},
+            {   id: FakeDB.random(), name: "Strogonoff", 
+                description: "Acompanha arroz branco e batata palha.", 
+                price: 12, image: 'strogonoff.png', 
+                selectOptions: [{name: "Carne"}, {name: "Frango"}], 
+                yesOrNoOptions: [{name: "Feijão"}, {name: "Farofa"}, {name: "Cebola", selected: true}]},
+            {   id: FakeDB.random(), name: "Salada", 
+                description: "Salada + grelhado do dia (opcional).", 
+                price: 12, image: 'salada.png',
+                selectOptions: [
+                    {name: "Sem grelhado"},
+                    {name: "Com grelhado", preCondition: [
+                        {name: "Frango", description: "Frango temperado com azeite português e ervas finas."},
+                        {name: "Carne", description: "Carne ao molho madeira."},
+                        {name: "Peixe", description: "Peixe a dorê."},
+                        {name: "Frango assado"},
+                        {name: "Carne assada"}
+                    ]}
+                ],
+                yesOrNoOptions: [
+                    {name: "Alface"}, {name: "Agrão"}, {name: "Ovo de codorna"}, 
+                    {name: "Cenoura cozida"}, {name: "Batata"}, {name: "Azeitona"}
+                ]
+            },
             { id: FakeDB.random(), name: "Feijoada", description: "Feijoada completa (acompanha dose de cachaça artesanal).", price: 15},
             { id: FakeDB.random(), name: "Yakisoba de Ópio", description: "Yakisoba feito na hora (com muito humor! rs).", price: 15}
         ] as Product[],

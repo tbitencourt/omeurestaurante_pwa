@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header translucent="true">
     <ion-toolbar>
         <ion-buttons slot="start">
             <ion-back-button defaultHref="/deliveries/details/{{delivery.id}}"></ion-back-button>
@@ -9,24 +9,44 @@
         </ion-title>
     </ion-toolbar>
 </ion-header>
-<ion-content>
-    <div class="title">
-        {{product.name}}
-        <div class="subtitle">
-            {{product.description}}
+<ion-content fullscreen>
+    <img class="contentPicture" *ngIf="product.image != null" src="assets/images/temp/{{product.image}}">
+    <div class="product-header">
+        <div class="title">
+            {{product.name}}
+            <div class="subtitle">
+                {{product.description}}
+            </div>
         </div>
-        R$ {{product.price}}
+        <div class="price">R$ {{product.price}}</div>
     </div>
     <ion-list *ngIf="product.selectOptions">
         <ion-radio-group>
+            <!-- TODO: MARCAR COMO REQUIRED SOMENTE ENQUANTO NÃO SELECIONA UMA DAS OPÇÕES OBRIGATÓRIAS ABAIXO. QUANDO MARCAR, INDICA QUE ESTÁ OK O PEDIDO. -->
             <ion-list-header class="required">
                 <ion-label>
                     Selecione as opções abaixo:
                 </ion-label>
             </ion-list-header>
             <ion-item *ngFor="let option of product.selectOptions">
-                <ion-radio slot="start" value="{{option}}"></ion-radio>
-                <ion-label>{{option}}</ion-label>
+                <ion-radio color="danger" slot="start" value="{{option.name}}"></ion-radio>
+                <ion-label>{{option.name}}</ion-label>
+                <ion-label class="subtitle">{{option.description}}</ion-label>
+
+                <!-- <ion-list *ngIf="option.preCondition">
+                    <ion-radio-group>
+                        <ion-list-header class="required">
+                            <ion-label>
+                                Selecione as opções abaixo:
+                            </ion-label>
+                        </ion-list-header>
+                        <ion-item *ngFor="let option of product.selectOptions">
+                            <ion-radio color="danger" slot="start" value="{{option.name}}"></ion-radio>
+                            <ion-label>{{option.name}}</ion-label>
+                            <ion-label class="subtitle">{{option.description}}</ion-label>
+                        </ion-item>
+                    </ion-radio-group>
+                </ion-list> -->
             </ion-item>
         </ion-radio-group>
     </ion-list>
@@ -38,10 +58,17 @@
                 </ion-label>
             </ion-list-header>
             <ion-item *ngFor="let option of product.yesOrNoOptions">
-                <ion-checkbox color="danger" slot="start" [checked]="option.selected"></ion-checkbox>
+                <ion-checkbox slot="start" [checked]="option.selected"></ion-checkbox>
                 <ion-label>{{option.name}}</ion-label>
             </ion-item>
         </ion-radio-group>
     </ion-list>
+    <ion-item>
+        <ion-label position="floating">Alguma observação sobre o pedido?</ion-label>
+        <ion-textarea rows="4" cols="15" clearOnEdit="true"></ion-textarea>
+    </ion-item>
 
 </ion-content>
+<ion-footer>
+    <ion-button color="danger" expand="block">Finalizar compra</ion-button>
+</ion-footer>
