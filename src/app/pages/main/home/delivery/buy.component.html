@@ -10,65 +10,53 @@
     </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
-    <img class="contentPicture" *ngIf="product.image != null" src="assets/images/temp/{{product.image}}">
-    <div class="product-header">
-        <div class="title">
-            {{product.name}}
-            <div class="subtitle">
-                {{product.description}}
+    <div [formGroup]="productForm">
+        <img class="contentPicture" *ngIf="product.image != null" src="assets/images/temp/{{product.image}}">
+        <div class="product-header">
+            <div class="title">
+                {{product.name}}
+                <div class="subtitle">
+                    {{product.description}}
+                </div>
             </div>
+            <div class="price">R$ {{product.price}}</div>
         </div>
-        <div class="price">R$ {{product.price}}</div>
+        <ion-list *ngIf="product.selectOptions">
+            <ion-radio-group formControlName="requiredOption">
+                <!-- TODO: MARCAR COMO REQUIRED SOMENTE ENQUANTO NÃO SELECIONA UMA DAS OPÇÕES OBRIGATÓRIAS ABAIXO. QUANDO MARCAR, INDICA QUE ESTÁ OK O PEDIDO. -->
+                <ion-list-header class="required">
+                    <ion-label>
+                        Qual sua preferência?
+                    </ion-label>
+                </ion-list-header>
+                <ion-item *ngFor="let option of product.selectOptions">
+                    <ion-radio color="danger" slot="start" [value]="option.name"></ion-radio>
+                    <ion-label>{{option.name}}</ion-label>
+                    <ion-label class="subtitle">{{option.description}}</ion-label>
+                </ion-item>
+            </ion-radio-group>
+        </ion-list>
+        <ion-list *ngIf="product.yesOrNoOptions">
+            <ion-item-group formArrayName="optionalItemns">
+                <ion-list-header class="optional">
+                    <ion-label>
+                        Maravilha! Que tal adicionar um dos itens abaixo?
+                    </ion-label>
+                </ion-list-header>
+                <ion-item [formGroupName]="i" *ngFor="let option of product.yesOrNoOptions; let i=index">
+                    <ion-checkbox slot="start" [formControlName]="option.name" [checked]="option.selected"></ion-checkbox>
+                    <ion-label>{{option.name}}</ion-label>
+                    <ion-label class="subtitle">{{option.description}}</ion-label>
+                </ion-item>
+            </ion-item-group>
+        </ion-list>
+        <ion-item>
+            <ion-label position="floating">Tudo certo! Se tiver algo a acrescentar, pode escrever aqui. 
+                Pode pedir menos molho, sem cebola, o que quiser acrescentar algo pedido.</ion-label>
+            <ion-textarea formControlName="notes" rows="4" cols="15" clearOnEdit="true"></ion-textarea>
+        </ion-item>
     </div>
-    <ion-list *ngIf="product.selectOptions">
-        <ion-radio-group>
-            <!-- TODO: MARCAR COMO REQUIRED SOMENTE ENQUANTO NÃO SELECIONA UMA DAS OPÇÕES OBRIGATÓRIAS ABAIXO. QUANDO MARCAR, INDICA QUE ESTÁ OK O PEDIDO. -->
-            <ion-list-header class="required">
-                <ion-label>
-                    Selecione as opções abaixo:
-                </ion-label>
-            </ion-list-header>
-            <ion-item *ngFor="let option of product.selectOptions">
-                <ion-radio color="danger" slot="start" value="{{option.name}}"></ion-radio>
-                <ion-label>{{option.name}}</ion-label>
-                <ion-label class="subtitle">{{option.description}}</ion-label>
-
-                <!-- <ion-list *ngIf="option.preCondition">
-                    <ion-radio-group>
-                        <ion-list-header class="required">
-                            <ion-label>
-                                Selecione as opções abaixo:
-                            </ion-label>
-                        </ion-list-header>
-                        <ion-item *ngFor="let option of product.selectOptions">
-                            <ion-radio color="danger" slot="start" value="{{option.name}}"></ion-radio>
-                            <ion-label>{{option.name}}</ion-label>
-                            <ion-label class="subtitle">{{option.description}}</ion-label>
-                        </ion-item>
-                    </ion-radio-group>
-                </ion-list> -->
-            </ion-item>
-        </ion-radio-group>
-    </ion-list>
-    <ion-list *ngIf="product.yesOrNoOptions">
-        <ion-radio-group>
-            <ion-list-header class="optional">
-                <ion-label>
-                    Caso queira, também poderá adicionar:
-                </ion-label>
-            </ion-list-header>
-            <ion-item *ngFor="let option of product.yesOrNoOptions">
-                <ion-checkbox slot="start" [checked]="option.selected"></ion-checkbox>
-                <ion-label>{{option.name}}</ion-label>
-            </ion-item>
-        </ion-radio-group>
-    </ion-list>
-    <ion-item>
-        <ion-label position="floating">Alguma observação sobre o pedido?</ion-label>
-        <ion-textarea rows="4" cols="15" clearOnEdit="true"></ion-textarea>
-    </ion-item>
-
 </ion-content>
-<ion-footer>
-    <ion-button color="danger" expand="block">Finalizar compra</ion-button>
+<ion-footer *ngIf="formIsValid()">
+    <ion-button color="danger" expand="block" (click)="checkout()">Finalizar compra</ion-button>
 </ion-footer>
