@@ -28,11 +28,6 @@ const routes: Routes = [
                         loadChildren: () => OrdersModule
                     }
                 ]
-            },
-            {
-                path: '',
-                redirectTo: 'deliveries',
-                pathMatch: 'full'
             }
         ]
     }

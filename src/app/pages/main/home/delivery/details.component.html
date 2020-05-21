@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="deliveries"></ion-back-button>
+            <ion-back-button defaultHref="/app/deliveries"></ion-back-button>
         </ion-buttons>
         <ion-title>
             {{delivery.name}}
@@ -21,7 +21,7 @@
         <hr>
         
         <div class="delivery-group-list">
-            <mat-card *ngFor="let prod of group.products" [routerLink]="'/deliveries/buy/' + prod.id">
+            <mat-card *ngFor="let prod of group.products" [routerLink]="'/app/deliveries/buy/' + prod.id">
                 <mat-card-title-group>
                     <mat-card-title>{{prod.name}}</mat-card-title>
                     <mat-card-subtitle>{{prod.description}}</mat-card-subtitle>
