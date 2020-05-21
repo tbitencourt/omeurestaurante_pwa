@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Delivery } from 'app/entities/delivery';
 import { Product } from 'app/entities/product';
 import { ProductDetails } from 'app/entities/product-details';
 import { DeliveryService } from 'app/services/delivery-service';
+
 @Component({
     selector: 'buy',
     templateUrl: './buy.component.html',
@@ -12,14 +13,15 @@ import { DeliveryService } from 'app/services/delivery-service';
 })
 export class BuyComponent implements OnInit {
 
-    details: ProductDetails;
+    private details: ProductDetails;
+    delivery: Delivery;
+    product: Product;
 
     productForm: FormGroup;
 
     private optionalItemnsArray: FormArray;
 
     constructor(private actRoute: ActivatedRoute,
-        private route: Router,
         private deliveryService: DeliveryService,
         private fb: FormBuilder) {
 
@@ -47,19 +49,13 @@ export class BuyComponent implements OnInit {
             }
             
             this.details = details;
+            this.product = product;
+            this.delivery = details.delivery;
             this.productForm.patchValue({product: product});
         });
     }
 
     ngOnInit(): void {}
-
-    get delivery(): Delivery {
-        return this.details.delivery;
-    }
-
-    get product(): Product {
-        return this.details.product;
-    }
 
     checkout(){
         console.log(this.productForm.value);

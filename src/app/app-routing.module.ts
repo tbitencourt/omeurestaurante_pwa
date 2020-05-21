@@ -3,11 +3,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { MainModule } from './pages/main/main.module';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => MainModule }
+  { path: 'app', loadChildren: () => MainModule },
+  { path: '', pathMatch: 'full', redirectTo: 'app/deliveries' }
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, {useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 })
