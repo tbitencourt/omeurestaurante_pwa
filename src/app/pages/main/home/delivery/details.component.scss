@@ -5,7 +5,7 @@ ion-content {
     p {
         padding: 0rem 2rem 0rem 2rem;
         font-size: small;
-    };
+    }
     hr {
         margin: 1em 0em 1em 0em;
     }
@@ -27,25 +27,36 @@ ion-content {
     display: flex;
     flex-direction: row;
     align-items: center;
-    mat-card {
-        min-width: 300px;
-        width: 95%;
-        height: 95%;
-        min-height: 112px;
-        background-color: rgba(245, 245, 240, 0.5);
-        margin: 2%;
-        border: 1px solid rgba(0, 0, 0, 0.1);
+    ion-card {
+        width: 30em;
+        min-height: 96px;
         cursor: pointer;
-    };
-    .mat-card-sm-image {
-        object-fit: cover;
+        
+        .mat-card-sm-image {
+          object-fit: cover;
+          width: 10%;
+          padding-left: 16px;
+        }
+        ion-card-header {
+          width: 100%;
+        }
+        .price {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: medium;
+          font-weight: lighter;
+          width: 70px;
+          text-align: center;
+          height: 96px;
+          background-color: darkgray;
+          color: white;
+        }
     }
-    .price {
-        position: absolute;
-        bottom: 12%;
-        font-size: medium;
-        font-weight: lighter;
-    }
+}
+
+.delivery-group-list.line {
+  flex-flow: wrap;
 }
 
 @media only screen and (max-width: 640px) {

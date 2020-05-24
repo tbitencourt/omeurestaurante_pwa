@@ -1,12 +1,13 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Platform, IonTabBar, IonTabs } from '@ionic/angular';
 import { filter } from 'rxjs/operators';
 
 @Component({
-    selector: 'app-main',
+    selector: 'main',
     templateUrl: 'main.component.html',
-    styleUrls: ['main.component.scss']
+    styleUrls: ['main.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class MainComponent {
 

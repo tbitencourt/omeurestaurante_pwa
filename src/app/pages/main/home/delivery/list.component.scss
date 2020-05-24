@@ -1,0 +1,35 @@
+ion-content {
+    background-color: lightgray;
+    p {
+        padding: 0rem 2rem 0rem 2rem;
+        font-size: small;
+    }
+    hr {
+        margin: 1em 0em 1em 0em;
+    }
+}
+
+.delivery-group-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    mat-card {
+      display: flex;
+      flex-direction: row;
+      min-width: 30em;
+      height: 10em;
+      background-color: rgba(245, 245, 240, 0.5);
+      margin: 2%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      mat-card-title-group {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1em;
+        padding-left: 1em;
+      }
+    }
+    img {
+      width: 35%;
+    }
+}

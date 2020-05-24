@@ -1,0 +1,25 @@
+main ion-title {
+  overflow: visible;
+  .subtitle {
+      font-size: 55%;
+      color: gray;
+  }
+}
+
+main hr.smooth {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+main hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+main mat-card-subtitle {
+  font-size: 70%;
+  color: gray;
+}
