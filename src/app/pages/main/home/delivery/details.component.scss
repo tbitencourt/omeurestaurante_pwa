@@ -28,40 +28,47 @@ ion-content {
     flex-direction: row;
     align-items: center;
     ion-card {
-        width: 30em;
-        min-height: 96px;
-        cursor: pointer;
-        
-        .mat-card-sm-image {
-          object-fit: cover;
-          width: 10%;
-          padding-left: 16px;
-        }
-        ion-card-header {
-          width: 100%;
-        }
-        .price {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: medium;
-          font-weight: lighter;
-          width: 70px;
-          text-align: center;
-          height: 96px;
-          background-color: darkgray;
-          color: white;
-        }
+      flex-direction: column;
+      cursor: pointer;
+      padding: 0.5em;
+      height: 100%;
+      width: 30em;
+      max-width: 100%;
+      
+      .mat-card-sm-image {
+        object-fit: cover;
+        width: 10em;
+      }
+      ion-card-title {
+        font-size: larger;
+      }
+      ion-card-subtitle {
+        font-size: small;
+      }
+      .price {
+        align-items: center;
+        font-size: medium;
+        font-weight: lighter;
+        text-align: center;
+      }
+      .tag-price{
+        position: absolute;
+        max-width: 3em;
+        right: 0px;
+        top: -3px;
+      }
     }
-}
-
-.delivery-group-list.line {
-  flex-flow: wrap;
-}
-
+    .delivery-group-list.line {
+      flex-flow: wrap;
+    }
+  }
+  
 @media only screen and (max-width: 640px) {
-    .delivery-group-list {
+    .delivery-group-list.line {
         flex-direction: column;
+    }
+    ion-card {
+      flex-direction: column;
     }
     #logo {
         width: 30%;

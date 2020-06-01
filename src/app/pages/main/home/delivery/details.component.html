@@ -23,12 +23,17 @@
         <div class="delivery-group-list line">
           <ion-card *ngFor="let prod of group.products" [routerLink]="'/app/deliveries/buy/' + prod.id">
             <div class="delivery-group-list">
-              <img mat-card-sm-image *ngIf="prod.image" src="assets/images/temp/{{prod.image}}">
+              <div>
+                <img mat-card-sm-image *ngIf="prod.image" src="assets/images/temp/{{prod.image}}">
+              </div>
               <ion-card-header>
                 <ion-card-title>{{prod.name}}</ion-card-title>
                 <ion-card-subtitle>{{prod.description}}</ion-card-subtitle>
               </ion-card-header>
-              <div slot="end" class="price">R$ {{prod.price}}</div>
+              <img *ngIf="prod.sale" class="tag-price" src="assets/images/icons/tag-price-hot.png">
+            </div>
+            <div class="price">
+              R$ {{prod.price}}
             </div>
           </ion-card>
         </div>

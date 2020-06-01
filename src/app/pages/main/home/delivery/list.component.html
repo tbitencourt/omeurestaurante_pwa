@@ -20,7 +20,9 @@
     </mat-card> -->
     <ion-card *ngFor="let item of listDeliveries; let i = index" [routerLink]="'details/' + item.id">
       <div class="delivery-group-list">
-        <img mat-card-sm-image src="/assets/images/temp/company.png">
+        <div class="img-container">
+          <img mat-card-sm-image src="/assets/images/temp/company.png">
+        </div>
         <ion-card-header>
           <ion-card-title>{{item.name}}</ion-card-title>
           <ion-card-subtitle>
@@ -28,7 +30,7 @@
           </ion-card-subtitle>
         </ion-card-header>
       </div>
-      <ion-card-content innerHtml="{{item.description}}"></ion-card-content>
+      <!-- <ion-card-content innerHtml="{{item.description}}"></ion-card-content> -->
     </ion-card>
   </div>
 	<!-- <ion-list>

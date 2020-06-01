@@ -13,23 +13,25 @@ ion-content {
     display: flex;
     flex-direction: row;
     align-items: center;
-    mat-card {
-      display: flex;
-      flex-direction: row;
-      min-width: 30em;
-      height: 10em;
-      background-color: rgba(245, 245, 240, 0.5);
-      margin: 2%;
+    ion-card {
+      width: 40em;
       border: 1px solid rgba(0, 0, 0, 0.1);
       cursor: pointer;
-      mat-card-title-group {
-        display: flex;
-        flex-direction: column;
-        padding-top: 1em;
-        padding-left: 1em;
+    }
+    .img-container {
+      width: 5em;
+      height: 100%;
+    }
+    ion-card-header {
+      width: 100%;
+      ion-card-title{
+        font-size: larger;
+      }
+      ion-card-subtitle {
+        font-size: smaller;
       }
     }
     img {
-      width: 35%;
+      width: 100%;
     }
 }

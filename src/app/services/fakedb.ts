@@ -11,7 +11,7 @@ export class FakeDB {
         [
             {   id: FakeDB.random(), name: "Strogonoff", 
                 description: "Acompanha arroz branco e batata palha.", 
-                price: 12, image: 'strogonoff.png', 
+                price: 12, sale: 10, image: 'strogonoff.png', 
                 selectOptions: [{name: "Carne"}, {name: "Frango"}], 
                 yesOrNoOptions: [{name: "Feijão"}, {name: "Farofa"}, {name: "Cebola", selected: true}]},
             {   id: FakeDB.random(), name: "Salada", 
