@@ -26,14 +26,15 @@ ion-content {
 .delivery-group-list {
     display: flex;
     flex-direction: row;
-    align-items: center;
+
     ion-card {
       flex-direction: column;
       cursor: pointer;
       padding: 0.5em;
-      height: 100%;
-      width: 30em;
+      height: 125px;
+      width: 300px;
       max-width: 100%;
+      max-height: 100%;
       
       .mat-card-sm-image {
         object-fit: cover;
@@ -60,6 +61,9 @@ ion-content {
     }
     .delivery-group-list.line {
       flex-flow: wrap;
+    }
+    .delivery-group-list.details {
+      height: 80%;
     }
   }
   
