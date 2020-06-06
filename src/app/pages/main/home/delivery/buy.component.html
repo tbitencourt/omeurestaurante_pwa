@@ -11,16 +11,29 @@
 </ion-header>
 <ion-content fullscreen>
     <div [formGroup]="productForm">
-        <img class="contentPicture" *ngIf="product.image != null" src="assets/images/temp/{{product.image}}">
-        <div class="product-header">
-            <div class="title">
-                {{product.name}}
-                <div class="subtitle">
-                    {{product.description}}
-                </div>
-            </div>
-            <div class="price">R$ {{product.price}}</div>
+      <div class="product-header">
+        <div class="delivery">
+          <img class="contentPicture" src="/assets/images/temp/company.png">
+          <div class="title">
+              {{delivery.name}}
+          </div>
         </div>
+        <ion-icon name="arrow-forward"></ion-icon>
+        <div class="product">
+          <img class="contentPicture" *ngIf="product.image != null" src="assets/images/temp/{{product.image}}">
+          <div class="title">
+            {{product.name}}
+            <div class="subtitle">
+                {{product.description}}
+            </div>
+          </div>
+        </div>
+        <ion-icon name="arrow-forward"></ion-icon>
+        <div class="price">
+          <div>R$ {{product.price}}</div>
+        </div>
+      </div>
+
         <ion-list *ngIf="product.selectOptions">
             <ion-radio-group formControlName="requiredOption">
                 <!-- TODO: MARCAR COMO REQUIRED SOMENTE ENQUANTO NÃO SELECIONA UMA DAS OPÇÕES OBRIGATÓRIAS ABAIXO. QUANDO MARCAR, INDICA QUE ESTÁ OK O PEDIDO. -->

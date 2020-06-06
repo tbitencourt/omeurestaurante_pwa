@@ -2,8 +2,12 @@ ion-content {
     background-color: lightgray;
     img {
         border: 10px solid transparent;
-        border-radius: 30px;
+        object-fit: cover;
+        border-radius: 500px;
+        width: 10em;
+        height: 10em;
     }
+
 }
 
 ion-list-header.optional {
@@ -21,6 +25,30 @@ ion-list-header.required {
     justify-content: space-between;
     align-items: center;
 
+    > div {
+      width: 30%;
+      text-align: center;
+      border-radius: 50%;
+    }
+    .price {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > div {
+        font-weight: bolder;
+        font-size: xx-large;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5em;
+        height: 5em;
+        background-color: rgba(20, 16, 106, 0.8);
+        border-radius: 50%;
+      }
+    }
+
     .title {
         padding-left: 1rem;
         font-size: large;
@@ -33,13 +61,6 @@ ion-list-header.required {
     .subtitle {
         font-weight: normal;
     }
-    .price {
-        font-weight: bolder;
-        width: 20%;
-        height: 100%;
-        text-align: right;
-        padding-right: 1em;
-    }
 }
 
 ion-footer {
@@ -47,5 +68,16 @@ ion-footer {
     padding-right: 10px;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (max-width: 640px) {
+  .product-header{
+    .delivery {
+      display: none;
+    }
+    .price {
+      display: none;
+    }
+    .product {
+      width: 100%;
+    }
+  }
 }
