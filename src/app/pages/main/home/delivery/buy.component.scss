@@ -61,6 +61,10 @@ ion-list-header.required {
     .subtitle {
         font-weight: normal;
     }
+    ion-icon[name=arrow-forward]{
+      width: 1em;
+      height: 1em;
+    }
 }
 
 ion-footer {
@@ -74,6 +78,9 @@ ion-footer {
       display: none;
     }
     .price {
+      display: none;
+    }
+    ion-icon[name=arrow-forward]{
       display: none;
     }
     .product {
