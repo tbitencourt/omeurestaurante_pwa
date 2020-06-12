@@ -1,5 +1,7 @@
 import { Product } from 'app/entities/product';
 import { SelectOption } from 'app/entities/options';
+import { Order } from 'app/entities/order';
+import { Delivery } from 'app/entities/delivery';
 
 export class FakeDB {
     private static random(limit: number = 1000): number {
@@ -11,7 +13,7 @@ export class FakeDB {
         [
             {   id: FakeDB.random(), name: "Strogonoff", 
                 description: "Acompanha arroz branco e batata palha.", 
-                price: 12, sale: 10, image: 'strogonoff.png', 
+                price: 12.99, sale: 10, image: 'strogonoff.png', 
                 selectOptions: [{name: "Carne"}, {name: "Frango"}], 
                 yesOrNoOptions: [{name: "Feijão"}, {name: "Farofa"}, {name: "Cebola", selected: true}]},
             {   id: FakeDB.random(), name: "Salada", 
@@ -48,5 +50,24 @@ export class FakeDB {
             { id: FakeDB.random(), name: "Camarão", description: "Deliciosos camarões salteados cobertos com mussarela e cebola roxa.", price: 38}
         ] as Product[]
     }
+
+    private static description: string = 
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.<p>" + 
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, " + 
+        "when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+
+    public static deliveries: Delivery[] = [
+      {id: 1, name: "Angus Delivery", services: ['Refeições', 'Pizzas'], rating: 4.5, description: FakeDB.description},
+      {id: 2, name: "Refúgio dos Piratas", services: ['Pizzas'], rating: 4.9, description: FakeDB.description},
+      {id: 3, name: "La Doce Vita", services: ['Refeições'], rating: 4.7, description: FakeDB.description},
+      {id: 4, name: "Delícias do Rancho", services: ['Lanches'], rating: 4.5, description: FakeDB.description},
+      {id: 5, name: "O Queijão", services: ['Refeições', 'Lanches'], rating: 4.8, description: FakeDB.description},
+    ];
+
+    public static orders: Order[] = [
+      {id: 1, product: FakeDB.products.lunchs[0], price: 14.90, delivery: FakeDB.deliveries[0], createdDate: new Date()},
+      {id: 2, product: FakeDB.products.lunchs[0], price: 14.90, delivery: FakeDB.deliveries[1], createdDate: new Date()},
+      {id: 3, product: FakeDB.products.pizzas[1], price: 19.99, delivery: FakeDB.deliveries[1], createdDate: new Date()},
+    ];
 
 }

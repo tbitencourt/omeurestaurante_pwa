@@ -1,0 +1,22 @@
+ion-content {
+  img {
+      border: 10px solid transparent;
+      object-fit: cover;
+      border-radius: 500px;
+      width: 3em;
+      height: 3em;
+  }
+}
+
+.title {
+    padding-left: 1rem;
+    font-size: large;
+    font-weight: bolder;
+    .subtitle {
+        font-size: 70%;
+        color: gray;
+    }
+}
+.subtitle {
+    font-weight: normal;
+}

@@ -12,14 +12,14 @@
 <ion-content fullscreen>
     <div [formGroup]="productForm">
       <div class="product-header">
-        <div class="delivery">
+        <div class="delivery steps">
           <img class="contentPicture" src="/assets/images/temp/company.png">
           <div class="title">
               {{delivery.name}}
           </div>
         </div>
         <ion-icon name="arrow-forward"></ion-icon>
-        <div class="product">
+        <div class="product steps">
           <img class="contentPicture" *ngIf="product.image != null" src="assets/images/temp/{{product.image}}">
           <div class="title">
             {{product.name}}
@@ -29,8 +29,8 @@
           </div>
         </div>
         <ion-icon name="arrow-forward"></ion-icon>
-        <div class="price">
-          <div>R$ {{product.price}}</div>
+        <div class="price steps">
+          <div>R$ {{product.price | number}}</div>
         </div>
       </div>
 

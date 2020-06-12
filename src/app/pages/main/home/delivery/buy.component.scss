@@ -7,7 +7,6 @@ ion-content {
         width: 10em;
         height: 10em;
     }
-
 }
 
 ion-list-header.optional {
@@ -25,7 +24,7 @@ ion-list-header.required {
     justify-content: space-between;
     align-items: center;
 
-    > div {
+    > .steps {
       width: 30%;
       text-align: center;
       border-radius: 50%;
@@ -78,7 +77,15 @@ ion-footer {
       display: none;
     }
     .price {
-      display: none;
+      position: fixed;
+      bottom: 3em;
+      right: 0px;
+      z-index: 2;
+      margin-right: 1em;
+      width: auto;
+      > div {
+        font-size: medium;
+      }
     }
     ion-icon[name=arrow-forward]{
       display: none;

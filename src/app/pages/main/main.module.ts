@@ -5,6 +5,8 @@ import { IonicModule } from '@ionic/angular';
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { DeliveryService } from 'app/services/delivery-service';
+import { OrdersService } from 'app/services/orders.service';
+import { ComponentsModule } from 'app/components/components.module';
 
 @NgModule({
   imports: [
@@ -14,6 +16,6 @@ import { DeliveryService } from 'app/services/delivery-service';
     MainRoutingModule
   ],
   declarations: [MainComponent],
-  providers: [DeliveryService]
+  providers: [DeliveryService, OrdersService]
 })
 export class MainModule {}

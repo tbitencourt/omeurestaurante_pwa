@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { OrdersComponent } from './orders.component';
+import { ComponentsModule } from 'app/components/components.module';
 
 const routes: Routes = [
     {
@@ -19,7 +20,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     MatCardModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ComponentsModule
   ],
   declarations: [OrdersComponent]
 })

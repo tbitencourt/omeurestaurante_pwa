@@ -7,5 +7,30 @@
 </ion-header>
 
 <ion-content>
-	
+	<ion-grid>
+    <ion-row>
+      <ion-col col-5>Produto</ion-col>
+      <ion-col col-2>Preço (R$)</ion-col>
+      <ion-col col-3>Local</ion-col>
+      <ion-col col-2>Data/Hora</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let order of listOrders">
+      <ion-col>
+        <img *ngIf="order.product.image != null" src="assets/images/temp/{{order.product.image}}">
+      </ion-col>
+      <ion-col>
+        <div class="product">
+          <div class="title">
+            {{order.product.name}}
+            <div class="subtitle">
+              {{order.product.description}}
+            </div>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col>{{order.price | $}}</ion-col>
+      <ion-col>{{order.delivery.name}}</ion-col>
+      <ion-col>{{order.createdDate | date: 'dd/MM/yyyy HH:mm'}}</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

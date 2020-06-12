@@ -44,5 +44,8 @@ ion-content {
     ion-card {
       width: 100%;
     }
+    .delivery-group-list.details {
+      flex-direction: row;
+    }
   }
 }

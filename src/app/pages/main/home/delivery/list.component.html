@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <div class="delivery-group-list">
+  <div class="delivery-group-list line">
     <!-- <mat-card *ngFor="let item of listDeliveries; let i = index" [routerLink]="'details/' + item.id">
       <img mat-card-sm-image src="/assets/images/temp/company.png">
       <mat-card-title-group>
@@ -19,7 +19,7 @@
       </mat-card-title-group>
     </mat-card> -->
     <ion-card *ngFor="let item of listDeliveries; let i = index" [routerLink]="'details/' + item.id">
-      <div class="delivery-group-list">
+      <div class="delivery-group-list details">
         <div class="img-container">
           <img mat-card-sm-image src="/assets/images/temp/company.png">
         </div>
