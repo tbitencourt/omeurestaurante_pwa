@@ -8,16 +8,6 @@
 
 <ion-content>
   <div class="delivery-group-list line">
-    <!-- <mat-card *ngFor="let item of listDeliveries; let i = index" [routerLink]="'details/' + item.id">
-      <img mat-card-sm-image src="/assets/images/temp/company.png">
-      <mat-card-title-group>
-        <mat-card-title>{{item.name}}</mat-card-title>
-        <mat-card-subtitle>
-          <ion-icon name="star"></ion-icon>{{item.rating}} | {{toServicesFormat(item)}}
-        </mat-card-subtitle>
-        <ion-card-content>{{item.description}}</ion-card-content>
-      </mat-card-title-group>
-    </mat-card> -->
     <ion-card *ngFor="let item of listDeliveries; let i = index" [routerLink]="'details/' + item.id">
       <div class="delivery-group-list details">
         <div class="img-container">
@@ -30,22 +20,6 @@
           </ion-card-subtitle>
         </ion-card-header>
       </div>
-      <!-- <ion-card-content innerHtml="{{item.description}}"></ion-card-content> -->
     </ion-card>
   </div>
-	<!-- <ion-list>
-        <ion-item-sliding *ngFor="let item of listDeliveries; let i = index">
-            <ion-item detail='true' [routerLink]="'details/' + item.id">
-                <ion-icon name="person" slot='start'></ion-icon>
-                <ion-label class="ion-text-wrap">
-                    <ion-text>{{item.name}}</ion-text>
-                    <p>{{toServicesFormat(item)}}</p>
-                    <p>{{item.rating}}</p>
-                </ion-label>
-            </ion-item>
-            <ion-item-options side="end">
-                <ion-item-option color="danger" (click)="delete(i)">Delete</ion-item-option>
-            </ion-item-options>
-        </ion-item-sliding>
-    </ion-list> -->
 </ion-content>

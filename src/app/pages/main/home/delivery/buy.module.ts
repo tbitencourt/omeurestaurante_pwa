@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { BuyComponent } from './buy.component';
+import { ComponentsModule } from 'app/components/components.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { BuyComponent } from './buy.component';
     FormsModule,
     MatCardModule,
     ReactiveFormsModule,
+    ComponentsModule,
     RouterModule.forChild([
       { path: ':id', component: BuyComponent }
     ])

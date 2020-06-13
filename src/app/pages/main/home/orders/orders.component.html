@@ -7,30 +7,25 @@
 </ion-header>
 
 <ion-content>
-	<ion-grid>
-    <ion-row>
-      <ion-col col-5>Produto</ion-col>
-      <ion-col col-2>Preço (R$)</ion-col>
-      <ion-col col-3>Local</ion-col>
-      <ion-col col-2>Data/Hora</ion-col>
-    </ion-row>
-    <ion-row *ngFor="let order of listOrders">
-      <ion-col>
-        <img *ngIf="order.product.image != null" src="assets/images/temp/{{order.product.image}}">
-      </ion-col>
-      <ion-col>
-        <div class="product">
-          <div class="title">
-            {{order.product.name}}
-            <div class="subtitle">
-              {{order.product.description}}
-            </div>
+  <div class="delivery-group-list line">
+    <div>
+      <ion-card *ngFor="let order of listOrders">
+        <div class="delivery-group-list details">
+          <div class="order-date">
+            <span>{{order.createdDate | date: 'dd'}}</span>
+            <span>{{order.createdDate | date: 'MMM'}}</span>
           </div>
+          <ion-card-header>
+            <ion-card-title>{{order.delivery.name}}</ion-card-title>
+          </ion-card-header>
         </div>
-      </ion-col>
-      <ion-col>{{order.price | $}}</ion-col>
-      <ion-col>{{order.delivery.name}}</ion-col>
-      <ion-col>{{order.createdDate | date: 'dd/MM/yyyy HH:mm'}}</ion-col>
-    </ion-row>
-  </ion-grid>
+        <ion-card-content>
+          {{order.product.name}} - <b>{{order.price | $}}</b>
+          <br>
+          {{order.product.description}}
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
 </ion-content>
