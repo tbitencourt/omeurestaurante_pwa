@@ -28,15 +28,22 @@
     "rxjs": "6.5.5",
     "tslib": "^1.13.0",
     "typescript": "3.7",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "@nguniversal/express-engine": "9.1.1",
+    "@angular/platform-server": "9.1.3",
+    "ts-loader": "^3.1.1"
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng build && ng serve",
+    "heroku-prebuild": "npm install",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:universal": "npm run build:client-and-server-bundles && npm run webpack:server && workbox generate:sw",
+    "serve:universal": "node www/server.js",
+    "build:client-and-server-bundles": "ng build --prod --build-optimizer && ng build --prod --build-optimizer --app 1 --output-hashing=false",
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.8",

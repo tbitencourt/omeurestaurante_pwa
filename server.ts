@@ -1,11 +1,11 @@
 // These are important and needed before anything else
-import 'zone.js/dist/zone-node';
-import 'reflect-metadata';
-
 import { enableProdMode } from '@angular/core';
-
+// Express Engine
+import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { join } from 'path';
+import 'reflect-metadata';
+import 'zone.js/dist/zone-node';
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -17,17 +17,12 @@ const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'www');
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./www/server/main.bundle');
-
-// Express Engine
-import { ngExpressEngine } from '@nguniversal/express-engine';
-// Import module map for lazy loading
-import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+const { AppServerModuleNgFactory } = require('./www/server/main.bundle');
 
 app.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory,
   providers: [
-    provideModuleMap(LAZY_MODULE_MAP)
+    AppServerModuleNgFactory
   ]
 }));
 
