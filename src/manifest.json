@@ -1,8 +1,8 @@
 {
-  "short_name": "PWA Kit",
-  "name": "Angular v5 SSR and PWA Starter Kit",
-  "start_url": "./?utm_source=web_app_manifest",
-
+  "short_name": "PWA-R",
+  "name": "Meu Restaurante",
+  "start_url": "index.html",
+  "description": "PWA do projeto Meu Restaurante baseado em Ionic.",
   "theme_color": "#f48c5b",
   "background_color": "#ffffff",
 
