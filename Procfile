@@ -1,1 +1,1 @@
-web: npm run build:client-and-server-bundles && npm start
+web: npm run serve:universal
