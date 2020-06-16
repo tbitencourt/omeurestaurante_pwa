@@ -40,7 +40,6 @@
   "scripts": {
     "ng": "ng",
     "heroku-prebuild": "npm install",
-    "heroku-postbuild": "npm run build:universal",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",

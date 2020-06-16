@@ -1,1 +1,1 @@
-web: npm run serve:universal
+web: node www/serve.js
