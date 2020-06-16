@@ -2,6 +2,9 @@
   "name": "omeu-restaurante",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "dependencies": {
     "@angular-devkit/core": "8.1.2",
     "@angular-devkit/schematics": "8.1.2",
