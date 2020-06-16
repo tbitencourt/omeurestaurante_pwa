@@ -39,8 +39,8 @@
   },
   "scripts": {
     "ng": "ng",
-    "heroku-prebuild": "npm install && npm run build:client-and-server-bundles",
-    "start": "ng serve",
+    "heroku-prebuild": "npm run build:client-and-server-bundles",
+    "start": "ng serve --prod",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
