@@ -39,7 +39,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "heroku-prebuild": "ng build --prod --build-optimizer && ng build --prod --build-optimizer --app 1 --output-hashing=all",
+    "heroku-prebuild": "ng build --prod --build-optimizer",
     "start": "ng serve --prod",
     "build": "ng build",
     "test": "ng test",
