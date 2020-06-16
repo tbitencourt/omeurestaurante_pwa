@@ -46,7 +46,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:universal": "npm run build:client-and-server-bundles && npm run webpack:server && workbox generate:sw",
-    "serve:universal": "node www/server.js",
+    "serve:universal": "node server.js",
     "build:client-and-server-bundles": "ng build --prod --build-optimizer && ng build --prod --build-optimizer --app 1 --output-hashing=false"
   },
   "devDependencies": {
