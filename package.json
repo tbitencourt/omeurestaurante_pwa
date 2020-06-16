@@ -31,7 +31,8 @@
     "zone.js": "~0.10.2",
     "@nguniversal/express-engine": "9.1.1",
     "@angular/platform-server": "9.1.3",
-    "ts-loader": "^3.1.1"
+    "ts-loader": "^3.1.1",
+    "@angular-devkit/build-angular": "^0.901.8"
   },
   "scripts": {
     "ng": "ng",
@@ -46,7 +47,6 @@
     "build:client-and-server-bundles": "ng build --prod --build-optimizer && ng build --prod --build-optimizer --app 1 --output-hashing=false"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.901.8",
     "codelyzer": "^5.1.2"
   }
 }
