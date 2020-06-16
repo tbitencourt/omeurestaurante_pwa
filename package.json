@@ -39,7 +39,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "heroku-prebuild": "npm install",
+    "heroku-prebuild": "npm install && npm run build",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
