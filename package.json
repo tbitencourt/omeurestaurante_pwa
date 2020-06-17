@@ -34,12 +34,11 @@
     "zone.js": "~0.10.2",
     "@nguniversal/express-engine": "9.1.1",
     "@angular/platform-server": "9.1.3",
-    "ts-loader": "^3.1.1",
-    "@angular-devkit/build-angular": "^0.901.8"
+    "ts-loader": "^3.1.1"
   },
   "scripts": {
     "ng": "ng",
-    "heroku-prebuild": "ng build --prod --build-optimizer",
+    "heroku-postbuild": "ionic build --prod",
     "start": "ng serve --prod",
     "build": "ng build",
     "test": "ng test",
@@ -50,6 +49,7 @@
     "build:client-and-server-bundles": "ng build --prod --build-optimizer && ng build --prod --build-optimizer --app 1 --output-hashing=all"
   },
   "devDependencies": {
-    "codelyzer": "^5.1.2"
+    "codelyzer": "^5.1.2",
+    "ionic": "^5.4.16"
   }
 }

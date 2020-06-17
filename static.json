@@ -1,0 +1,14 @@
+{
+  "routes": {
+    "/**": "index.html"
+  },
+  "headers": {
+    "ngsw-worker.js": {
+      "Cache-Control": "no-cache"
+    },
+    "/build/app/**": {
+      "Cache-Control": "public, max-age=31536000"
+    }
+  },
+  "root": "www/"
+}
