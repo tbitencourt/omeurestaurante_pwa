@@ -6,11 +6,12 @@
     "node": "12.x"
   },
   "dependencies": {
+    "@angular-devkit/build-angular": "^0.901.9",
     "@angular-devkit/core": "8.1.2",
     "@angular-devkit/schematics": "8.1.2",
     "@angular/animations": "9.1.3",
     "@angular/cdk": "^9.2.4",
-    "@angular/cli": "^9.1.8",
+    "@angular/cli": "^9.1.9",
     "@angular/common": "9.1.3",
     "@angular/compiler": "9.1.3",
     "@angular/compiler-cli": "9.1.3",
@@ -19,22 +20,23 @@
     "@angular/material": "^9.2.4",
     "@angular/platform-browser": "9.1.3",
     "@angular/platform-browser-dynamic": "9.1.3",
+    "@angular/platform-server": "9.1.3",
     "@angular/router": "9.1.3",
     "@covalent/core": "^3.0.1",
     "@ionic-native/core": "^5.26.0",
     "@ionic-native/splash-screen": "^5.26.0",
     "@ionic-native/status-bar": "^5.26.0",
-    "@ionic/angular": "^5.2.1",
+    "@ionic/angular": "^5.2.2",
+    "@nguniversal/express-engine": "9.1.1",
     "angular": "^1.8.0",
     "core-js": "^2.6.9",
+    "express": "^4.15.2",
     "font-awesome": "^4.7.0",
     "rxjs": "6.5.5",
+    "ts-loader": "^3.1.1",
     "tslib": "^1.13.0",
     "typescript": "3.7",
-    "zone.js": "~0.10.2",
-    "@nguniversal/express-engine": "9.1.1",
-    "@angular/platform-server": "9.1.3",
-    "ts-loader": "^3.1.1"
+    "zone.js": "~0.10.2"
   },
   "scripts": {
     "ng": "ng",
@@ -50,7 +52,6 @@
     "build:client-and-server-bundles": "ng build --prod --build-optimizer && ng build --prod --build-optimizer --app 1 --output-hashing=all"
   },
   "devDependencies": {
-    "codelyzer": "^5.1.2",
-    "ionic": "^5.4.16"
+    "@ionic/cli": "^6.10.1"
   }
 }
