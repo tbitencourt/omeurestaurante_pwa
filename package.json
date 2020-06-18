@@ -41,7 +41,7 @@
   "scripts": {
     "ng": "ng",
     "heroku-prebuild": "npm install",
-    "heroku-postbuild": "ionic build --prod",
+    "heroku-postbuild": "ng build --prod",
     "start": "ng serve --prod",
     "build": "ng build",
     "test": "ng test",
