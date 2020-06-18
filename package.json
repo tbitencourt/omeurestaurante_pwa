@@ -42,14 +42,11 @@
     "ng": "ng",
     "heroku-prebuild": "npm install",
     "heroku-postbuild": "ng build --prod",
-    "start": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng serve --prod",
+    "start": "node --max_old_space_size=4096 server.js --prod",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build:universal": "npm run build:client-and-server-bundles && npm run webpack:server && workbox generate:sw",
-    "serve:universal": "node server.js",
-    "build:client-and-server-bundles": "ng build --prod --build-optimizer && ng build --prod --build-optimizer --app 1 --output-hashing=all"
+    "e2e": "ng e2e"
   },
   "devDependencies": {
     "@ionic/cli": "^6.10.1"

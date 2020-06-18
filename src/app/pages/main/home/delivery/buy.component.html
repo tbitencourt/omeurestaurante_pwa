@@ -64,12 +64,12 @@
             </ion-item-group>
         </ion-list>
         <ion-item>
-            <ion-label position="floating">Tudo certo! Se tiver algo a acrescentar, pode escrever aqui. 
-                Pode pedir menos molho, sem cebola, o que quiser acrescentar algo pedido.</ion-label>
-            <ion-textarea formControlName="notes" rows="4" cols="15" clearOnEdit="true"></ion-textarea>
+            <ion-label position="floating">Quer acrescentar algo?</ion-label>
+            <ion-textarea placeholder="Pode pedir menos molho, sem cebola, o que quiser acrescentar algo pedido." 
+              formControlName="notes" rows="4" cols="15" clearOnEdit="true"></ion-textarea>
         </ion-item>
     </div>
 </ion-content>
-<ion-footer *ngIf="formIsValid()">
+<ion-footer *ngIf="product.selectOptions == null || formIsValid()">
     <ion-button color="danger" expand="block" (click)="checkout()">Finalizar compra</ion-button>
 </ion-footer>

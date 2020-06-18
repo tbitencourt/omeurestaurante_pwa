@@ -71,10 +71,14 @@ ion-footer {
     padding-right: 10px;
 }
 
+ion-textarea {
+  font-size: 1em;
+}
+
 @media only screen and (max-width: 640px) {
   .product-header{
     padding: 1em;
-    
+
     .delivery {
       display: none;
     }
