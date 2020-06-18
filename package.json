@@ -42,7 +42,7 @@
     "ng": "ng",
     "heroku-prebuild": "npm install",
     "heroku-postbuild": "ng build --prod",
-    "start": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng serve --prod --build-optimizer",
+    "start": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng serve --prod",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
