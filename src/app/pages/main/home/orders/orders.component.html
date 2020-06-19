@@ -8,24 +8,22 @@
 
 <ion-content>
   <div class="delivery-group-list line">
-    <div>
-      <ion-card *ngFor="let order of listOrders">
-        <div class="delivery-group-list details">
-          <div class="order-date">
-            <span>{{order.createdDate | date: 'dd'}}</span>
-            <span>{{order.createdDate | date: 'MMM'}}</span>
-          </div>
-          <ion-card-header>
-            <ion-card-title>{{order.delivery.name}}</ion-card-title>
-          </ion-card-header>
+    <ion-card *ngFor="let order of listOrders">
+      <div class="delivery-group-list details">
+        <div class="order-date">
+          <span>{{order.createdDate | date: 'dd'}}</span>
+          <span>{{order.createdDate | date: 'MMM'}}</span>
         </div>
-        <ion-card-content>
-          {{order.product.name}} - <b>{{order.price | $}}</b>
-          <br>
-          {{order.product.description}}
-        </ion-card-content>
-      </ion-card>
-    </div>
+        <ion-card-header>
+          <ion-card-title>{{order.delivery.name}}</ion-card-title>
+        </ion-card-header>
+      </div>
+      <ion-card-content>
+        {{order.product.name}} - <b>{{order.price | $}}</b>
+        <br>
+        {{order.product.description}}
+      </ion-card-content>
+    </ion-card>
   </div>
 
 </ion-content>

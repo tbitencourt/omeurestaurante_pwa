@@ -1,4 +1,3 @@
-
 .delivery-group-list {
   display: flex;
   flex-direction: row;
@@ -17,6 +16,7 @@
       text-align: center;
       padding: 5px;
       width: 4em;
+      height: 4em;
       margin-top: 13px;
       margin-left: 13px;
       background-color: #f2f2f2;
@@ -35,12 +35,19 @@
     ion-card-subtitle {
       font-size: small;
     }
+    ion-card-header {
+      height: 4em;
+    }
+    ion-card-content {
+      height: 50%;
+    }
   }
-  .delivery-group-list.line {
+  .line {
     flex-flow: wrap;
+    flex-direction: row;
   }
-  .delivery-group-list.details {
-    height: 80%;
+  .details {
+    height: 50%;
   }
 }
 
