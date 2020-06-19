@@ -11,12 +11,12 @@ export class FakeDB {
     public static products = {
         lunchs:
         [
-            {   id: FakeDB.random(), name: "Strogonoff", 
+            {   id: 1, name: "Strogonoff", 
                 description: "Acompanha arroz branco e batata palha.", 
                 price: 12.99, sale: 10, image: 'strogonoff.png', 
                 selectOptions: [{name: "Carne"}, {name: "Frango"}], 
                 yesOrNoOptions: [{name: "Feijão"}, {name: "Farofa"}, {name: "Cebola", selected: true}]},
-            {   id: FakeDB.random(), name: "Salada", 
+            {   id: 2, name: "Salada", 
                 description: "Salada + grelhado do dia (opcional).", 
                 price: 12, image: 'salada.png',
                 selectOptions: [
@@ -34,20 +34,20 @@ export class FakeDB {
                     {name: "Cenoura cozida"}, {name: "Batata"}, {name: "Azeitona"}
                 ]
             },
-            { id: FakeDB.random(), name: "Feijoada", description: "Feijoada completa (acompanha dose de cachaça artesanal).", price: 15},
-            { id: FakeDB.random(), name: "Yakisoba de Ópio", description: "Yakisoba feito na hora (com muito humor! rs).", price: 15}
+            { id: 3, name: "Feijoada", description: "Feijoada completa (acompanha dose de cachaça artesanal).", price: 15},
+            { id: 4, name: "Yakisoba de Ópio", description: "Yakisoba feito na hora (com muito humor! rs).", price: 15}
         ] as Product[],
         snacks: 
         [
-            { id: FakeDB.random(), name: "Porção de pão de queijo (12 unids)", description: "", price: 6, image: 'pao-de-queijo.jpg'},
-            { id: FakeDB.random(), name: "Açai", description: "Diversos tamanhos e acompanhamentos.", price: 8},
-            { id: FakeDB.random(), name: "Salgado + suco do dia", description: "Salgados diversos.", price: 6}
+            { id: 5, name: "Porção de pão de queijo (12 unids)", description: "", price: 6, image: 'pao-de-queijo.jpg'},
+            { id: 6, name: "Açai", description: "Diversos tamanhos e acompanhamentos.", price: 8},
+            { id: 7, name: "Salgado + suco do dia", description: "Salgados diversos.", price: 6}
         ] as Product[],
         pizzas:
         [
-            { id: FakeDB.random(), name: "Mussarela", description: "Mussarela + oregano + molho caseiro", price: 18},
-            { id: FakeDB.random(), name: "Calabresa especial", description: "Calabresa + mussarela + cebola, alho e especiarias.", price: 20},
-            { id: FakeDB.random(), name: "Camarão", description: "Deliciosos camarões salteados cobertos com mussarela e cebola roxa.", price: 38}
+            { id: 8, name: "Mussarela", description: "Mussarela + oregano + molho caseiro", price: 18},
+            { id: 9, name: "Calabresa especial", description: "Calabresa + mussarela + cebola, alho e especiarias.", price: 20},
+            { id: 10, name: "Camarão", description: "Deliciosos camarões salteados cobertos com mussarela e cebola roxa.", price: 38}
         ] as Product[]
     }
 
