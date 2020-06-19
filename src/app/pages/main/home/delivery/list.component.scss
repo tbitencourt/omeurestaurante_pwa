@@ -1,52 +1,88 @@
 ion-content {
-    background-color: lightgray;
-    p {
-        padding: 0rem 2rem 0rem 2rem;
-        font-size: small;
-    }
-    hr {
-        margin: 1em 0em 1em 0em;
-    }
+  background-color: lightgray;
+  p {
+      padding: 0rem 2rem 0rem 2rem;
+      font-size: small;
+  }
+  hr {
+      margin: 1em 0em 1em 0em;
+  }
+}
+
+.delivery-group-title {
+  font-weight: bolder;
+  font-size: medium;
+  padding-left: 2em;
 }
 
 .delivery-group-list {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    ion-card {
-      width: 40em;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-    }
-    .img-container {
-      width: 5em;
+  display: flex;
+  flex-direction: row;
+
+  ion-card {
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5em;
+    width: 300px;
+    max-height: 100%;
+    
+    .mat-card-sm-image {
+      object-fit: cover;
+      width: 10em;
       height: 100%;
+      padding-bottom: 1em;
+    }
+    ion-card-title {
+      font-size: larger;
+    }
+    ion-card-subtitle {
+      font-size: small;
     }
     ion-card-header {
-      width: 100%;
-      ion-card-title{
-        font-size: larger;
-        font-weight: 600;
-      }
-      ion-card-subtitle {
-        font-size: smaller;
-      }
+      align-self: center;
     }
-    img {
-      width: 100%;
+    .price {
+      align-items: center;
+      font-size: medium;
+      font-weight: 600;
+      text-align: center;
     }
-}
-
-@media only screen and (max-width: 640px) {
-  .delivery-group-list {
-    flex-direction: column;
-    padding-left: 1em;
-    padding-right: 1em;
-    ion-card {
-      width: 100%;
+    .tag-price{
+      position: absolute;
+      max-width: 3em;
+      right: 0px;
+      top: -3px;
     }
-    .delivery-group-list.details {
-      flex-direction: row;
+  }
+  .delivery-group-list.line {
+    flex-flow: wrap;
+  }
+  .delivery-group-list.details {
+    height: 100%;
+    .img-container {
+      width: 40%;
+      min-width: 3em;
+      align-self: center;
     }
   }
 }
+
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+  .delivery-group-list.details {
+    flex-direction: column;
+    .img-container {
+      width: 100% !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+.delivery-group-list {
+  ion-card {
+    width: auto;
+  }
+}
+.delivery-group-list.line {
+      flex-direction: column;
+  }
+}  
