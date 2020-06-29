@@ -6,6 +6,8 @@ import { IonicModule } from '@ionic/angular';
 import { ListComponent } from './list.component';
 import { DetailsModule } from './details.module';
 import { BuyModule } from './buy.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DeliveryService } from 'app/services/delivery-service';
 
 const routes: Routes = [
     {
@@ -32,8 +34,10 @@ const routes: Routes = [
         IonicModule,
         CommonModule,
         FormsModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        HttpClientModule
     ],
-    declarations: [ListComponent]
+    declarations: [ListComponent],
+    providers: [DeliveryService]
 })
 export class ListModule { }

@@ -30,7 +30,7 @@ export class FakeDB {
                     ]}
                 ],
                 yesOrNoOptions: [
-                    {name: "Alface"}, {name: "Agrão"}, {name: "Ovo de codorna"}, 
+                    {name: "Alface"}, {name: "Agrião"}, {name: "Ovo de codorna"}, 
                     {name: "Cenoura cozida"}, {name: "Batata"}, {name: "Azeitona"}
                 ]
             },

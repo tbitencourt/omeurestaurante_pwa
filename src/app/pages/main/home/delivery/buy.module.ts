@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { BuyComponent } from './buy.component';
 import { ComponentsModule } from 'app/components/components.module';
+import { DeliveryService } from 'app/services/delivery-service';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -19,6 +21,7 @@ import { ComponentsModule } from 'app/components/components.module';
       { path: ':id', component: BuyComponent }
     ])
   ],
-  declarations: [BuyComponent]
+  declarations: [BuyComponent],
+  providers: [DeliveryService, HttpClient]
 })
 export class BuyModule {}

@@ -5,6 +5,7 @@ import { Delivery } from 'app/entities/delivery';
 import { Product } from 'app/entities/product';
 import { ProductDetails } from 'app/entities/product-details';
 import { DeliveryService } from 'app/services/delivery-service';
+import { Order } from 'app/entities/order';
 
 @Component({
     selector: 'buy',
@@ -26,12 +27,12 @@ export class BuyComponent implements OnInit {
         private fb: FormBuilder) {
 
         this.optionalItemnsArray = this.fb.array([]);
-
+        
         this.productForm = this.fb.group({
-            product: null,
-            notes: null,
-            requiredOption: [null, Validators.required],
-            optionalItemns: this.optionalItemnsArray
+          product: null,
+          notes: null,
+          requiredOption: [null, Validators.required],
+          optionalItemns: this.optionalItemnsArray
         });
 
         const id = this.actRoute.snapshot.paramMap.get('id');
@@ -39,10 +40,11 @@ export class BuyComponent implements OnInit {
             let product = details.product;
 
             if(product.yesOrNoOptions){
-                product.yesOrNoOptions.forEach(opt =>
+                product.yesOrNoOptions.forEach((opt, index) =>
                     this.optionalItemnsArray.push(
                         this.fb.group({
-                            [opt.name]: opt.selected
+                          name: opt.name,
+                          selected: opt.selected
                         })
                     )
                 );
@@ -51,6 +53,7 @@ export class BuyComponent implements OnInit {
             this.details = details;
             this.product = product;
             this.delivery = details.delivery;
+
             this.productForm.patchValue({product: product});
         });
     }
@@ -58,7 +61,13 @@ export class BuyComponent implements OnInit {
     ngOnInit(): void {}
 
     checkout(){
-        console.log(this.productForm.value);
+        let order: Order = this.productForm.value;
+        order.createdDate = new Date();
+        order.optionalItemns = order.optionalItemns.filter(opt => opt.selected);
+        this.deliveryService.whatsapp(order);
+        /* this.deliveryService.buy(JSON.stringify(order))
+          .subscribe(ok => console.log("Compra realizada = " + ok), 
+                    error => console.log("Ocorreu um erro = " + error)); */
     }
 
     formIsValid(): boolean {
