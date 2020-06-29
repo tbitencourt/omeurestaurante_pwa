@@ -65,9 +65,9 @@ export class FakeDB {
     ];
 
     public static orders: Order[] = [
-      {id: 1, product: FakeDB.products.lunchs[0], price: 14.90, delivery: FakeDB.deliveries[0], createdDate: new Date()},
-      {id: 2, product: FakeDB.products.lunchs[0], price: 14.90, delivery: FakeDB.deliveries[1], createdDate: new Date()},
-      {id: 3, product: FakeDB.products.pizzas[1], price: 19.99, delivery: FakeDB.deliveries[1], createdDate: new Date()},
+      {id: 1, product: FakeDB.products.lunchs[0], price: 14.90, delivery: FakeDB.deliveries[0], createdDate: new Date(), requiredOption: "Carne"},
+      {id: 2, product: FakeDB.products.lunchs[0], price: 14.90, delivery: FakeDB.deliveries[1], createdDate: new Date(), requiredOption: "Frango"},
+      {id: 3, product: FakeDB.products.pizzas[1], price: 19.99, delivery: FakeDB.deliveries[1], createdDate: new Date(), requiredOption: null},
     ];
 
 }

@@ -7,9 +7,9 @@ export class Order {
   product: Product;
   delivery: Delivery;
   price: number;
-  createdDate: Date;
+  createdDate?: Date;
 
-  notes: string;
+  notes?: string;
   requiredOption: string;
-  optionalItemns: YesOrNoOption[];
+  optionalItemns?: YesOrNoOption[];
 }
