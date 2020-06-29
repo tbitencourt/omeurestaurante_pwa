@@ -42,7 +42,8 @@ export class DeliveryService {
 
       /* window.open("https://api.whatsapp.com/send?phone=5521991701516&text=Bla", 
                   "_blank", "toolbar=no,scrollbars=no,resizable=no,top=500,left=500,width=400,height=400"); */
-      window.open("https://web.whatsapp.com/send?phone=5521991701516&text=" + description, "_blank");
+      //window.open("https://web.whatsapp.com/send?phone=5521991701516&text=" + description, "_blank");
+      window.open("https://wa.me/5521991701516&text=" + description, "_blank");
     }
 
     getProduct(id: number): Observable<ProductDetails> {
