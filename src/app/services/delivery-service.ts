@@ -35,11 +35,11 @@ export class DeliveryService {
 
       if(order.optionalItemns.length > 0){
         description += "Por favor, inclua: " + DeliveryService.BREAK_LINE;
-        description += order.optionalItemns.map(opt => opt.name.toLowerCase() + DeliveryService.BREAK_LINE).join("");
+        description += order.optionalItemns.map(opt => opt.name.toLowerCase()).join(DeliveryService.BREAK_LINE);
       }
 
       if(order.notes)
-        description += "Algumas considerações: _" + order.notes + "_";
+        description += DeliveryService.BREAK_LINE + "Algumas considerações: _" + order.notes + "_";
 
       /* window.open("https://api.whatsapp.com/send?phone=5521991701516&text=Bla", 
                   "_blank", "toolbar=no,scrollbars=no,resizable=no,top=500,left=500,width=400,height=400"); */
