@@ -77,12 +77,29 @@ ion-content {
 }
 
 @media only screen and (max-width: 640px) {
-.delivery-group-list {
-  ion-card {
-    width: auto;
+  .delivery-group-list {
+    ion-card {
+      width: auto;
+    }
   }
-}
-.delivery-group-list.line {
-      flex-direction: column;
+  .delivery-group-list.line {
+    flex-direction: column;
   }
 }  
+
+.logo {
+  width: 5em;
+  margin-top: 1em;
+  margin-bottom: 0.7em; 
+}
+
+.header {
+  display: flex !important;
+  align-items: center !important;
+  span {
+    font-size: medium;
+    padding-left: 1em;
+    display: block;
+    white-space: normal;
+  }
+}
