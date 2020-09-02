@@ -30,7 +30,7 @@
         </div>
         <ion-icon name="arrow-forward"></ion-icon>
         <div class="price steps">
-          <div>{{product.price | $}}</div>
+          <div>{{(product.sale ? product.sale : product.price) | $}}</div>
         </div>
       </div>
 

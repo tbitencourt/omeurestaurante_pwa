@@ -15,7 +15,6 @@ export class ListComponent implements OnInit {
 
     constructor(private route: Router,
         private deliveryService: DeliveryService) {
-
         this.deliveryService.listAvaiableDeliveries().subscribe(r => this.listDeliveries = r);
     }
 

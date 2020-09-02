@@ -64,7 +64,7 @@ export class BuyComponent implements OnInit {
         let order: Order = this.productForm.value;
         order.createdDate = new Date();
         order.optionalItemns = order.optionalItemns.filter(opt => opt.selected);
-        this.deliveryService.whatsapp(order);
+        this.deliveryService.whatsappSendMessage(order);
         /* this.deliveryService.buy(JSON.stringify(order))
           .subscribe(ok => console.log("Compra realizada = " + ok), 
                     error => console.log("Ocorreu um erro = " + error)); */

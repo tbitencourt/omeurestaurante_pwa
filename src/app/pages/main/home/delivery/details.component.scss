@@ -51,6 +51,14 @@ ion-content {
         font-size: medium;
         font-weight: 600;
         text-align: center;
+
+        .normal{
+          color: #6565df;
+        }
+        .sale {
+          text-decoration: line-through;
+          font-size: small;
+        }
       }
       .tag-price{
         position: absolute;

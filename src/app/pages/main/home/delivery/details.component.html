@@ -32,9 +32,15 @@
               </ion-card-header>
               <img *ngIf="prod.sale" class="tag-price" src="assets/images/icons/tag-price-hot.png">
             </div>
-            <div class="price">
-              {{prod.price | $}}
+
+            <div class="price" *ngIf="prod.sale; else PriceNormal">
+              <h7 class="normal">{{prod.sale | $}}</h7>&nbsp;<h7 class="sale">{{prod.price | $}}</h7>
             </div>
+            <ng-template #PriceNormal>
+              <div class="price">
+                <h7>{{prod.price | $}}</h7>
+              </div>
+            </ng-template>
           </ion-card>
         </div>
     </div>

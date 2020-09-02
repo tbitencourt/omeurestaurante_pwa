@@ -7,23 +7,51 @@
 </ion-header>
 
 <ion-content>
-  <div class="delivery-group-list line">
-    <ion-card *ngFor="let order of listOrders">
-      <div class="delivery-group-list details">
-        <div class="order-date">
-          <span>{{order.createdDate | date: 'dd'}}</span>
-          <span>{{order.createdDate | date: 'MMM'}}</span>
-        </div>
-        <ion-card-header>
-          <ion-card-title>{{order.delivery.name}}</ion-card-title>
-        </ion-card-header>
+  <mat-tab-group>
+
+    <mat-tab label="Em Andamento">
+      <div class="delivery-group-list line">
+        <ion-card *ngFor="let order of listOrders">
+          <div class="delivery-group-list details">
+            <div class="order-date">
+              <span>{{order.createdDate | date: 'dd'}}</span>
+              <span>{{order.createdDate | date: 'MMM'}}</span>
+            </div>
+            <ion-card-header>
+              <ion-card-title>{{order.delivery.name}}</ion-card-title>
+            </ion-card-header>
+          </div>
+          <ion-card-content>
+            {{order.product.name}} - <b>{{order.price | $}}</b>
+            <br>
+            {{order.product.description}}
+          </ion-card-content>
+        </ion-card>
       </div>
-      <ion-card-content>
-        {{order.product.name}} - <b>{{order.price | $}}</b>
-        <br>
-        {{order.product.description}}
-      </ion-card-content>
-    </ion-card>
-  </div>
+    </mat-tab>
+
+    <mat-tab label="Anteriores">
+      <div class="delivery-group-list line">
+        <ion-card *ngFor="let order of listOrders">
+          <div class="delivery-group-list details">
+            <div class="order-date">
+              <span>{{order.createdDate | date: 'dd'}}</span>
+              <span>{{order.createdDate | date: 'MMM'}}</span>
+            </div>
+            <ion-card-header>
+              <ion-card-title>{{order.delivery.name}}</ion-card-title>
+            </ion-card-header>
+          </div>
+          <ion-card-content>
+            {{order.product.name}} - <b>{{order.price | $}}</b>
+            <br>
+            {{order.product.description}}
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+  
 
 </ion-content>
